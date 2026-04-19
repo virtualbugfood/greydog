@@ -34,7 +34,7 @@ Google Search has gotten bad. Every search is now a wall of AI summaries, sponso
 
 **Blocking trackers**
 
-> Chrome extensions can define network rules using the `declarativeNetRequest` API. GREYDOG ships with a list of rules that block outgoing requests to Google Analytics, DoubleClick, AdService, and Google's internal `gen_204` telemetry endpoint. These are blocked at the network level — the requests never leave your browser.
+> Chrome extensions can define network rules using the `declarativeNetRequest` API. GREYDOG ships with a list of rules that block outgoing requests to Google Analytics, DoubleClick, AdService, and Google's internal `gen_204` telemetry endpoint. These are blocked at the network level; the requests never leave your browser.
 > On top of that, the content script overrides `navigator.sendBeacon()` in the page context. Google uses sendBeacon to fire analytics pings silently when you click links. The override intercepts those calls and drops them if they're going to a Google tracking domain.
 
 **Scrambling your browser ID**
