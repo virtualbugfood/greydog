@@ -1,6 +1,5 @@
 # GREYDOG 🐕
 **Search Decontaminator** -- a Chrome extension that strips the junk out of Google Search.
-No AI overviews. No ads. No tracking beacons. Just the results.
 
 ---
 
