@@ -119,7 +119,7 @@ body {
 }
 .sdot.off { background: #1a2a3a; box-shadow: none; border: 1px solid #254060; }
 
-/* ── SKULL PANEL ── */
+/* ── DOG PANEL ── */
 .top-panel {
   background: var(--bg2);
   border-bottom: 1px solid var(--border);
@@ -138,7 +138,7 @@ body {
   background: linear-gradient(90deg, transparent, var(--pink-dim), transparent);
 }
 
-#skullCanvas {
+#dogCanvas {
   image-rendering: pixelated;
   display: block;
   flex-shrink: 0;
@@ -413,7 +413,7 @@ body {
 @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
 .blink { animation: blink 1s step-end infinite; color: var(--cyan); text-shadow: 0 0 6px var(--cyan); }
 
-/* Glow pulse on skull */
+/* Glow pulse on dog */
 @keyframes glowpulse {
   0%,100% { filter: drop-shadow(0 0 5px var(--pink)) drop-shadow(0 0 10px var(--pink-glow)); }
   50%     { filter: drop-shadow(0 0 10px var(--pink)) drop-shadow(0 0 20px var(--pink-glow)); }
