@@ -1,0 +1,46 @@
+{
+  "manifest_version": 3,
+  "name": "GREYDOG – Search Decontaminator",
+  "version": "4.0.0",
+  "description": "Strips AI slop, ads, and tracking beacons from Google Search. Stay clean out there.",
+  "permissions": ["storage", "activeTab", "declarativeNetRequest", "scripting", "tabs"],
+  "host_permissions": [
+    "https://www.google.com/*",
+    "https://google.com/*",
+    "https://www.google-analytics.com/*",
+    "https://www.googletagmanager.com/*",
+    "https://googleads.g.doubleclick.net/*",
+    "https://adservice.google.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.google.com/search*", "https://google.com/search*"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_start"
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "declarative_net_request": {
+    "rule_resources": [{
+      "id": "tracker_rules",
+      "enabled": true,
+      "path": "tracker_rules.json"
+    }]
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icon16.png",
+      "48": "icon48.png",
+      "128": "icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

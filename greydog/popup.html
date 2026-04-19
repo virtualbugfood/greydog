@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>GREYDOG</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+
+<div class="titlebar">
+  <div>
+    <div class="title-name">GREYDOG<span class="blink">_</span></div>
+    <span class="title-sub">SEARCH DECONTAMINATOR</span>
+  </div>
+  <div class="title-right">
+    <span class="title-time" id="lcdTime">00:00</span>
+    <div class="status-dots">
+      <div class="sdot"></div>
+      <div class="sdot"></div>
+      <div class="sdot off"></div>
+    </div>
+  </div>
+</div>
+
+<div class="top-panel">
+  <img id="dogImg" src="dog.png" width="80" height="80" style="width:80px;height:80px;image-rendering:pixelated;display:block;flex-shrink:0;">
+  <div class="stats-area">
+    <div class="stat-block">
+      <span class="stat-label">BLOAT NEUTRALIZED</span>
+      <span class="stat-value" id="totalCount">0</span>
+    </div>
+    <div class="stat-block">
+      <span class="stat-label">RUNS COMPLETED</span>
+      <span class="stat-value sm" id="searchCount">0</span>
+    </div>
+  </div>
+</div>
+
+<div class="section-header">
+  <span class="section-title">// ALWAYS ACTIVE</span>
+  <div class="section-line"></div>
+</div>
+
+<div class="toggle-row" data-id="removeAIOverview">
+  <div class="row-text">
+    <span class="row-name">AI OVERVIEW</span>
+    <span class="row-desc">Strips the AI-generated answer block injected at top of results</span>
+  </div>
+  <div class="px-toggle" id="chk-removeAIOverview">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="removeAds">
+  <div class="row-text">
+    <span class="row-name">SPONSORED ADS</span>
+    <span class="row-desc">Purges paid listings and shopping unit injections</span>
+  </div>
+  <div class="px-toggle" id="chk-removeAds">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="removeSuggestedSearches">
+  <div class="row-text">
+    <span class="row-name">SEARCH CHIPS</span>
+    <span class="row-desc">Clears filter chips and suggestion bars pushed above results</span>
+  </div>
+  <div class="px-toggle" id="chk-removeSuggestedSearches">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="section-header">
+  <span class="section-title">// OPTIONAL</span>
+  <div class="section-line"></div>
+</div>
+
+<div class="toggle-row" data-id="removePeopleAlsoAsk">
+  <div class="row-text">
+    <span class="row-name">PEOPLE ALSO ASK</span>
+    <span class="row-desc">Removes expandable Q&amp;A accordion blocks between results</span>
+  </div>
+  <div class="px-toggle" id="chk-removePeopleAlsoAsk">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="removeTopStories">
+  <div class="row-text">
+    <span class="row-name">TOP STORIES</span>
+    <span class="row-desc">Kills the news carousel injected mid-results</span>
+  </div>
+  <div class="px-toggle" id="chk-removeTopStories">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="removeKnowledgePanel">
+  <div class="row-text">
+    <span class="row-name">KNOWLEDGE PANEL</span>
+    <span class="row-desc">Removes the right-side info card sidebar</span>
+  </div>
+  <div class="px-toggle" id="chk-removeKnowledgePanel">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="removeRelatedSearches">
+  <div class="row-text">
+    <span class="row-name">RELATED SEARCHES</span>
+    <span class="row-desc">Removes the "related searches" block at the bottom</span>
+  </div>
+  <div class="px-toggle" id="chk-removeRelatedSearches">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="section-header section-header-privacy">
+  <span class="section-title">// GHOST PROTOCOL</span>
+  <div class="section-line"></div>
+</div>
+
+<div class="toggle-row" data-id="spoofUserAgent" data-group="privacy">
+  <div class="row-text">
+    <span class="row-name">SCRAMBLE BROWSER ID</span>
+    <span class="row-desc">Sends a randomized browser/OS signature each session</span>
+  </div>
+  <div class="px-toggle" id="chk-spoofUserAgent">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="blockTrackers" data-group="privacy">
+  <div class="row-text">
+    <span class="row-name">KILL BEACONS</span>
+    <span class="row-desc">Hard-blocks Analytics, DoubleClick, and telemetry pings</span>
+  </div>
+  <div class="px-toggle" id="chk-blockTrackers">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="toggle-row" data-id="spoofCanvas" data-group="privacy">
+  <div class="row-text">
+    <span class="row-name">SCRAMBLE FINGERPRINT</span>
+    <span class="row-desc">Adds invisible pixel noise to break canvas fingerprinting</span>
+  </div>
+  <div class="px-toggle" id="chk-spoofCanvas">
+    <div class="px-toggle-track"></div><div class="px-toggle-knob"></div>
+    <span class="px-toggle-label off-label">OFF</span><span class="px-toggle-label on-label">ON</span>
+  </div>
+</div>
+
+<div class="footer">
+  <span class="footer-hint">// reload tab to deploy changes</span>
+  <button class="reload-btn" id="reloadBtn">[ RELOAD ]</button>
+</div>
+
+<div class="saved-flash" id="savedFlash">// SAVED</div>
+<script src="popup.js"></script>
+</body>
+</html>
